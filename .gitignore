@@ -1,0 +1,149 @@
+# -----------------------
+# macOS
+# -----------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+.Icon?
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.DocumentRevisions-V100
+
+# -----------------------
+# Python / bytecode
+# -----------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# -----------------------
+# Virtual envs / Conda / env files
+# -----------------------
+.env
+.env.*                     # local environment variables
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+pipenv/
+Pipfile.lock
+.python-version
+conda-meta/
+conda-env/
+.conda/
+# If you create a conda env folder in the repo:
+envs/
+anaconda-env.yml
+environment.yml
+environment.lock.yml
+
+# -----------------------
+# Jupyter / IPython
+# -----------------------
+.ipynb_checkpoints/
+jupyter_*.json
+.jupyter/
+.ipython/
+profile_default/
+__pycache__/
+
+# Jupyter runtime (temp runtime files)
+jupyter_runtime/
+~/.local/share/jupyter/runtime/
+
+# JupyterLab workspace & settings
+workspace/
+lab-workspaces/
+# VSCode/Jupyter workspace config (if created)
+.vscode/
+
+# Notebook outputs (optional: uncomment if you want to ignore executed outputs)
+# The recommended minimal approach is to track notebooks but ignore execution metadata:
+# .nbconvert/
+# *.nbconvert.ipynb
+
+# -----------------------
+# caches & installs
+# -----------------------
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+*.whl
+pip-wheel-metadata/
+
+# pip cache, wheelhouse
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+wheelhouse/
+
+# Python caches / tools
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.mypy_cache/
+
+# -----------------------
+# Editor / IDE
+# -----------------------
+.idea/
+*.sublime-workspace
+*.sublime-project
+.vscode/
+*.swp
+*.swo
+
+# -----------------------
+# OS / misc
+# -----------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# -----------------------
+# Machine learning frameworks / libraries
+# -----------------------
+# torch / cuda caches
+torch_cache/
+.torch/
+*.pt
+*.pth
+
+# Hugging Face / datasets caches (users usually keep these in home ~/.cache)
+# If you ever store caches locally in the repo, ignore them:
+.huggingface/
+.cache/
+hf_data_cache/
+# datasets local cache (if used inside repo)
+dataset_cache/
+
+# TensorBoard logs
+events.out.tfevents.*
+tensorboard/
+tb_logs/
+
+# -----------------------
+# Secrets / credentials
+# -----------------------
+# Common secret files (never commit)
+*.pem
+*.key
+*.crt
+credentials/
+*.env
+secrets/
+*.secret
