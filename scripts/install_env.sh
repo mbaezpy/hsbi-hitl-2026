@@ -68,7 +68,7 @@ fi
 python -m pip install \
     numpy scipy pandas scikit-learn matplotlib tqdm \
     jupyterlab ipykernel \
-    transformers datasets sentence-transformers \
+    transformers "datasets==3.6.0" sentence-transformers \
     pillow opencv-python-headless
 
 # -------------------------------------------------------
