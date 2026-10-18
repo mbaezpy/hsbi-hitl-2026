@@ -78,8 +78,7 @@ python -m pip install \
 python -m ipykernel install \
     --user \
     --name "$ENV_NAME" \
-    --display-name "HITL Course" \
-    --replace
+    --display-name "HITL Course"
 
 # -------------------------------------------------------
 # 6. Optional packages for later course arcs
