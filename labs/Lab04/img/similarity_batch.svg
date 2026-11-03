@@ -1,0 +1,165 @@
+<svg width="1100" height="360" viewBox="0 0 1100 360" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .title { font: 700 20px Arial, sans-serif; fill: #111; }
+    .label { font: 600 15px Arial, sans-serif; fill: #222; }
+    .text { font: 14px Arial, sans-serif; fill: #333; }
+    .small { font: 13px Arial, sans-serif; fill: #444; }
+    .mono { font: 13px 'Courier New', monospace; fill: #222; }
+    .box { fill: #ffffff; stroke: #333; stroke-width: 1.5; rx: 8; }
+    .light { fill: #f7f7f7; stroke: #999; stroke-width: 1; }
+    .highlight { fill: #e8f1fb; stroke: #4a78c2; stroke-width: 1.5; }
+    .accent { fill: #fff4d6; stroke: #d4a72c; stroke-width: 1.5; }
+    .arrow { stroke: #555; stroke-width: 2; marker-end: url(#arrowhead); fill: none; }
+    .cell { fill: white; stroke: #777; stroke-width: 1; }
+    .selectedCell { fill: #fff4d6; stroke: #d4a72c; stroke-width: 1.5; }
+    .diagCell { fill: #eeeeee; stroke: #999; stroke-width: 1; }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#555"></polygon>
+    </marker>
+  </defs>
+
+  <text x="30" y="32" class="title">Average batch similarity: data transformation</text>
+
+  <!-- Stage 1 -->
+  <rect x="30" y="55" width="220" height="255" class="box"></rect>
+  <text x="45" y="80" class="label">1. Select the batch</text>
+  <text x="45" y="105" class="mono">selected = [2, 5, 8, 11]</text>
+  <text x="45" y="130" class="small">Take only those rows from X_pool</text>
+
+  <rect x="50" y="150" width="55" height="28" class="light"></rect>
+  <rect x="50" y="178" width="55" height="28" class="highlight"></rect>
+  <rect x="50" y="206" width="55" height="28" class="light"></rect>
+  <rect x="50" y="234" width="55" height="28" class="light"></rect>
+  <rect x="50" y="262" width="55" height="28" class="highlight"></rect>
+  <text x="60" y="169" class="mono">row 0</text>
+  <text x="60" y="197" class="mono">row 2</text>
+  <text x="60" y="225" class="mono">row 4</text>
+  <text x="60" y="253" class="mono">row 6</text>
+  <text x="60" y="281" class="mono">row 8</text>
+
+  <text x="125" y="190" class="mono">...</text>
+
+  <rect x="155" y="160" width="70" height="110" class="highlight"></rect>
+  <text x="166" y="182" class="mono">X_batch</text>
+  <text x="166" y="205" class="mono">x₁</text>
+  <text x="166" y="225" class="mono">x₂</text>
+  <text x="166" y="245" class="mono">x₃</text>
+  <text x="166" y="265" class="mono">x₄</text>
+
+  <!-- Arrow 1 -->
+  <path d="M 250 182 C 285 182, 285 182, 320 182" class="arrow"></path>
+
+  <!-- Stage 2 -->
+  <rect x="320" y="55" width="270" height="255" class="box"></rect>
+  <text x="335" y="80" class="label">2. Compute pairwise similarities</text>
+  <text x="335" y="105" class="mono">similarities = cosine_similarity(X_batch)</text>
+
+  <!-- matrix -->
+  <text x="390" y="138" class="mono">x₁</text>
+  <text x="445" y="138" class="mono">x₂</text>
+  <text x="500" y="138" class="mono">x₃</text>
+  <text x="555" y="138" class="mono">x₄</text>
+
+  <text x="355" y="175" class="mono">x₁</text>
+  <text x="355" y="215" class="mono">x₂</text>
+  <text x="355" y="255" class="mono">x₃</text>
+  <text x="355" y="295" class="mono">x₄</text>
+
+  <!-- row 1 -->
+  <rect x="380" y="150" width="50" height="35" class="diagCell"></rect>
+  <rect x="430" y="150" width="50" height="35" class="cell"></rect>
+  <rect x="480" y="150" width="50" height="35" class="cell"></rect>
+  <rect x="530" y="150" width="50" height="35" class="cell"></rect>
+
+  <!-- row 2 -->
+  <rect x="380" y="185" width="50" height="35" class="cell"></rect>
+  <rect x="430" y="185" width="50" height="35" class="diagCell"></rect>
+  <rect x="480" y="185" width="50" height="35" class="cell"></rect>
+  <rect x="530" y="185" width="50" height="35" class="cell"></rect>
+
+  <!-- row 3 -->
+  <rect x="380" y="220" width="50" height="35" class="cell"></rect>
+  <rect x="430" y="220" width="50" height="35" class="cell"></rect>
+  <rect x="480" y="220" width="50" height="35" class="diagCell"></rect>
+  <rect x="530" y="220" width="50" height="35" class="cell"></rect>
+
+  <!-- row 4 -->
+  <rect x="380" y="255" width="50" height="35" class="cell"></rect>
+  <rect x="430" y="255" width="50" height="35" class="cell"></rect>
+  <rect x="480" y="255" width="50" height="35" class="cell"></rect>
+  <rect x="530" y="255" width="50" height="35" class="diagCell"></rect>
+
+  <!-- values -->
+  <text x="392" y="172" class="mono">1.00</text>
+  <text x="442" y="172" class="mono">0.82</text>
+  <text x="492" y="172" class="mono">0.41</text>
+  <text x="542" y="172" class="mono">0.65</text>
+
+  <text x="392" y="207" class="mono">0.82</text>
+  <text x="442" y="207" class="mono">1.00</text>
+  <text x="492" y="207" class="mono">0.37</text>
+  <text x="542" y="207" class="mono">0.58</text>
+
+  <text x="392" y="242" class="mono">0.41</text>
+  <text x="442" y="242" class="mono">0.37</text>
+  <text x="492" y="242" class="mono">1.00</text>
+  <text x="542" y="242" class="mono">0.44</text>
+
+  <text x="392" y="277" class="mono">0.65</text>
+  <text x="442" y="277" class="mono">0.58</text>
+  <text x="492" y="277" class="mono">0.44</text>
+  <text x="542" y="277" class="mono">1.00</text>
+
+  <!-- Arrow 2 -->
+  <path d="M 590 182 C 625 182, 625 182, 660 182" class="arrow"></path>
+
+  <!-- Stage 3 -->
+  <rect x="660" y="55" width="210" height="255" class="box"></rect>
+  <text x="675" y="80" class="label">3. Keep only unique pairs</text>
+  <text x="675" y="105" class="mono">upper = np.triu_indices(4, k=1)</text>
+  <text x="675" y="128" class="small">Upper triangle, excluding diagonal</text>
+
+  <!-- highlighted matrix -->
+  <rect x="700" y="150" width="40" height="32" class="diagCell"></rect>
+  <rect x="740" y="150" width="40" height="32" class="selectedCell"></rect>
+  <rect x="780" y="150" width="40" height="32" class="selectedCell"></rect>
+  <rect x="820" y="150" width="40" height="32" class="selectedCell"></rect>
+
+  <rect x="700" y="182" width="40" height="32" class="cell"></rect>
+  <rect x="740" y="182" width="40" height="32" class="diagCell"></rect>
+  <rect x="780" y="182" width="40" height="32" class="selectedCell"></rect>
+  <rect x="820" y="182" width="40" height="32" class="selectedCell"></rect>
+
+  <rect x="700" y="214" width="40" height="32" class="cell"></rect>
+  <rect x="740" y="214" width="40" height="32" class="cell"></rect>
+  <rect x="780" y="214" width="40" height="32" class="diagCell"></rect>
+  <rect x="820" y="214" width="40" height="32" class="selectedCell"></rect>
+
+  <rect x="700" y="246" width="40" height="32" class="cell"></rect>
+  <rect x="740" y="246" width="40" height="32" class="cell"></rect>
+  <rect x="780" y="246" width="40" height="32" class="cell"></rect>
+  <rect x="820" y="246" width="40" height="32" class="diagCell"></rect>
+
+  <text x="687" y="298" class="mono">Extracted values:</text>
+  <text x="687" y="320" class="mono">[0.82, 0.41, 0.65, 0.37, 0.58, 0.44]</text>
+
+  <!-- Arrow 3 -->
+  <path d="M 870 182 C 905 182, 905 182, 940 182" class="arrow"></path>
+
+  <!-- Stage 4 -->
+  <rect x="940" y="55" width="135" height="255" class="box"></rect>
+  <text x="955" y="80" class="label">4. Average them</text>
+  <text x="955" y="120" class="mono">mean =</text>
+  <text x="955" y="145" class="mono">(0.82 + 0.41 +</text>
+  <text x="955" y="165" class="mono"> 0.65 + 0.37 +</text>
+  <text x="955" y="185" class="mono"> 0.58 + 0.44) / 6</text>
+
+  <rect x="958" y="215" width="100" height="42" class="accent"></rect>
+  <text x="975" y="242" class="mono">0.545</text>
+
+  <text x="950" y="285" class="small">Average pairwise</text>
+  <text x="950" y="302" class="small">cosine similarity</text>
+</svg>
