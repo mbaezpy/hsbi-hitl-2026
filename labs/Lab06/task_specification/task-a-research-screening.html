@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research paper screening · Annotation workspace</title>
+<style>
+:root{color-scheme:light;--ink:#202c37;--muted:#61707b;--line:#dce3e6;--wash:#f4f6f6;--accent:#245e59;--accent-light:#eaf3f1;--paper:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--wash);color:var(--ink);font:15px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea{font:inherit}button,a,input,textarea,summary{outline-offset:3px}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #418b82}a{color:var(--accent)}button{cursor:pointer}button:disabled{cursor:not-allowed}h1,h2,h3,h4,p{margin-top:0}p:last-child{margin-bottom:0}[hidden]{display:none!important}
+.topbar{background:#fff;border-bottom:1px solid var(--line)}.top-inner{max-width:1500px;margin:auto;padding:13px 32px;display:flex;align-items:center;justify-content:space-between;gap:20px}.identity{display:flex;align-items:center;gap:11px}.brandmark{width:34px;height:34px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700;letter-spacing:-.05em}.identity strong{display:block;font-size:14px;line-height:1.25}.identity span{display:block;color:var(--muted);font-size:12px}.header-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.btn{border:1px solid #c9d4d4;background:#fff;color:#344750;border-radius:6px;padding:8px 12px;font-size:13px;font-weight:600;line-height:1.25}.btn:hover{background:#f4f8f7;border-color:#9fb8b4}.btn-primary{background:var(--accent);border-color:var(--accent);color:#fff;padding:10px 18px}.btn-primary:hover{background:#194d49;color:#fff}.btn-text{border:0;background:transparent;color:var(--accent);padding:8px 4px}.btn-review[aria-expanded=true]{background:var(--accent-light);border-color:#9abeb8}
+.shell{max-width:1500px;margin:0 auto;padding:27px 32px 56px}.page-header{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:22px}.eyebrow{font-size:11px;font-weight:750;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 5px}.page-header h1{font-size:26px;letter-spacing:-.025em;line-height:1.2;margin:0 0 5px}.page-header p{font-size:14px;color:var(--muted);margin:0}.progress-block{min-width:180px;max-width:250px;width:100%;font-size:12px;color:var(--muted)}.progress-head{display:flex;justify-content:space-between;gap:16px;margin-bottom:6px}.progress-head strong{color:#36454d}progress{display:block;width:100%;height:6px;border:0;appearance:none}progress::-webkit-progress-bar{background:#dfe7e5;border-radius:8px}progress::-webkit-progress-value{background:var(--accent);border-radius:8px}progress::-moz-progress-bar{background:var(--accent);border-radius:8px}
+.layout{display:grid;grid-template-columns:minmax(270px,350px) minmax(0,1fr);align-items:start;gap:20px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:9px;min-width:0}.panel-head{padding:19px 20px;border-bottom:1px solid var(--line)}.panel-head h2,.section-head h2{font-size:16px;letter-spacing:-.01em;margin:0}.panel-head p,.section-head p{color:var(--muted);font-size:13px;margin:4px 0 0}.instructions{scroll-margin-top:20px}.instruction-intro{padding:18px 20px;font-size:13px}.instruction-intro p{margin-bottom:12px}.meta-list{margin:0;display:grid;gap:9px}.meta-list div{display:grid;grid-template-columns:83px 1fr;gap:8px}.meta-list dt{color:var(--muted)}.meta-list dd{margin:0;font-weight:600}details{border-top:1px solid var(--line)}summary{cursor:pointer;font-size:13px;font-weight:700;list-style:none;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}summary::-webkit-details-marker{display:none}summary:after{content:'+';font-size:18px;color:var(--muted);font-weight:400;line-height:1}details[open]>summary:after{content:'−'}.details-body{padding:0 20px 16px;color:#45545c;font-size:13px}.details-body p{margin:0 0 9px}.details-body ol,.details-body ul{margin:6px 0 12px;padding-left:19px}.details-body li+li{margin-top:4px}.guide-block{margin:0 0 14px}.guide-block:last-child{margin-bottom:0}.guide-block strong{display:block;color:var(--ink);margin-bottom:4px}.example{border-left:2px solid #b8cecb;padding-left:11px;margin:12px 0}.example p{margin:0 0 6px}.example-label{color:var(--accent);font-weight:750;font-size:11px;letter-spacing:.05em;text-transform:uppercase}
+.task-body{padding:22px 26px 26px}.section-head{display:flex;justify-content:space-between;gap:14px;align-items:start;margin-bottom:17px}.section-kicker{color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:0 0 5px}.item-id{font-size:11px;font-weight:650;color:#687880;border:1px solid var(--line);padding:3px 8px;border-radius:4px;white-space:nowrap}.source-box{border:1px solid var(--line);border-radius:7px;overflow:hidden}.source-toolbar{background:#f8fafa;border-bottom:1px solid var(--line);padding:10px 15px;display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--muted);font-size:12px;font-weight:650}.source-content{padding:21px 20px 23px}.source-content h3{font-size:20px;line-height:1.3;letter-spacing:-.015em;max-width:700px;margin:6px 0 19px}.field-label{font-size:11px;color:var(--muted);font-weight:750;letter-spacing:.09em;text-transform:uppercase;margin:0 0 6px}.source-content p{max-width:760px;line-height:1.75;margin-bottom:0}.divider{height:1px;background:var(--line);margin:25px 0}.form-intro{margin-bottom:15px}.form-intro h2{font-size:16px;margin:0 0 4px}.form-intro p{font-size:13px;color:var(--muted);margin:0}.criteria{border:1px solid var(--line);border-radius:7px;overflow:hidden}.criterion{border:0;border-bottom:1px solid var(--line);padding:13px 15px;margin:0;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;min-width:0}.criterion:last-child{border-bottom:0}.criterion legend{float:left;width:calc(100% - 175px);padding:0;font-weight:650;font-size:14px}.criterion:after{content:'';display:block;clear:both}.criterion-code{color:var(--muted);font-size:11px;font-weight:700;display:block;letter-spacing:.06em;margin-bottom:2px}.options{display:flex;gap:8px;justify-content:flex-end}.option{display:flex;align-items:center;gap:7px;border:1px solid #d7e0e0;border-radius:6px;background:#fff;padding:7px 12px;font-size:13px;min-width:70px}.option:has(input:checked){border-color:var(--accent);background:var(--accent-light);color:#194d49}.option input,.check-row input{accent-color:var(--accent);margin:0}.decision{border:0;padding:0;margin:21px 0 0;min-width:0}.decision legend,.comment-label,.amount-label{font-size:14px;font-weight:700;margin-bottom:8px}.decision .options{justify-content:flex-start}.decision .option{min-width:110px}.hint{font-size:12px;color:var(--muted);margin:4px 0 10px}.comment-block{margin-top:21px}.comment-label{display:block}.optional{font-weight:400;color:var(--muted)}textarea,.amount-input{display:block;width:100%;background:#fff;border:1px solid #c9d4d4;border-radius:6px;color:var(--ink);padding:10px 11px}textarea{min-height:78px;resize:vertical}.form-actions{border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px;padding-top:19px}.form-note{margin-left:auto;color:var(--muted);font-size:12px}.submission{margin-top:20px;border:1px solid #b9d1cc;background:#f5faf8;border-radius:7px;padding:16px 18px}.submission h3{margin:0 0 3px;font-size:15px}.submission p{font-size:13px;color:var(--muted);margin:0 0 10px}.summary-list{display:grid;grid-template-columns:minmax(140px,240px) 1fr;gap:6px 14px;margin:0;font-size:13px}.summary-list dt{color:var(--muted)}.summary-list dd{margin:0;font-weight:650;white-space:pre-wrap;overflow-wrap:anywhere}
+.receipt-grid{display:grid;grid-template-columns:minmax(230px,1fr) minmax(230px,1fr);gap:14px}.receipt-frame,.ocr-frame{border:1px solid var(--line);border-radius:7px;min-width:0;overflow:hidden}.receipt-surface{background:#f0f2f1;padding:22px;display:flex;justify-content:center}.receipt{background:#fff;border:1px solid #e4e7e5;width:min(100%,305px);padding:22px 20px;color:#242a28;font:12px/1.55 "Courier New",monospace}.receipt-title{text-align:center;font-weight:700;font-size:16px;letter-spacing:.04em}.receipt-sub{text-align:center;color:#666;font-size:10px;margin:3px 0 16px}.receipt-rule{border:0;border-top:1px dashed #9daca6;margin:12px 0}.receipt-line{display:flex;justify-content:space-between;gap:10px}.receipt-line.total{font-weight:700;font-size:13px}.receipt-foot{text-align:center;margin-top:15px;font-size:10px;color:#66706b}.ocr-text{padding:19px;white-space:pre-wrap;overflow-wrap:anywhere;color:#44535b;font:12px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;margin:0}.input-layout{max-width:360px}.amount-label{display:block}.suggestion{display:flex;justify-content:space-between;gap:14px;color:#53636a;background:#f7f9f8;border:1px solid var(--line);border-radius:6px;padding:9px 11px;font-size:13px;margin-bottom:12px}.suggestion strong{color:#33464d;font-variant-numeric:tabular-nums}.amount-input:disabled{background:#f3f5f4;color:#8b9796}.check-row{display:flex;gap:9px;align-items:center;margin-top:12px;font-size:13px}.print-hint{display:none}
+.review{margin-top:20px;border-color:#a5c4bd;scroll-margin-top:16px}.review .panel-head{background:#f1f7f5}.review .panel-head h2{font-size:17px}.review-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0}.review-item{padding:18px 20px;border-bottom:1px solid var(--line);font-size:13px}.review-item:nth-child(odd){border-right:1px solid var(--line)}.review-item h3{font-size:14px;margin:5px 0 7px}.review-item p{margin:0 0 7px}.review-item p:last-child{margin-bottom:0}.review-type{color:var(--accent);font-weight:750;font-size:10px;letter-spacing:.1em;text-transform:uppercase}.review-item strong{color:#2c4144}.review-on [data-review-target]{outline:2px solid #5a968d;outline-offset:3px;scroll-margin-top:24px}.review-on .review [data-review-target]{outline:0}
+@media(max-width:800px){.top-inner,.shell{padding-left:16px;padding-right:16px}.top-inner{align-items:flex-start}.page-header{align-items:start;flex-direction:column}.progress-block{max-width:none}.layout{grid-template-columns:1fr}.receipt-grid,.review-grid{grid-template-columns:1fr}.review-item:nth-child(odd){border-right:0}.task-body{padding:19px 16px}.header-actions{justify-content:flex-end}.form-note{width:100%;margin:0}.criterion{display:block}.criterion legend{float:none;width:auto;margin-bottom:8px}.criterion .options{justify-content:flex-start}}
+@media(max-width:450px){.identity span{display:none}.top-inner{display:block}.header-actions{justify-content:flex-start;margin-top:12px}.page-header h1{font-size:23px}.receipt-surface{padding:14px}.summary-list{grid-template-columns:1fr;gap:1px}.summary-list dd{margin-bottom:7px}}
+@page{size:A4;margin:14mm}@media print{*{print-color-adjust:exact;-webkit-print-color-adjust:exact}html,body{background:#fff;font-size:10pt}.topbar{border-bottom:1px solid #999}.top-inner{padding:0 0 8px}.brandmark{border:1px solid #456;background:#fff;color:#234}.header-actions,.form-actions,.btn-text{display:none!important}.shell{padding:14px 0 0}.page-header{margin:0 0 14px}.page-header h1{font-size:18pt}.layout{display:block}.panel{border:1px solid #bbb;border-radius:0;margin-bottom:12px}.panel-head,.task-body{padding:12px}.instructions{break-inside:auto}.instruction-intro{padding:10px 12px}.details-body{padding:0 12px 10px}.instruction-intro,.details-body{font-size:9.5pt}.guide-block,.example,.criterion,.receipt-grid,.review-item,.source-box{break-inside:avoid}.section-head,.form-intro{break-after:avoid}summary{padding:9px 12px;break-after:avoid}summary:after{content:''!important}.source-content{padding:12px}.source-content h3{font-size:15pt}.source-content p{line-height:1.5}.receipt-surface{padding:10px}.receipt{border:1px solid #bbb}.review-grid{display:block}.review-item{border-right:0!important;padding:10px 12px}.review{break-before:page}.review-on [data-review-target]{outline:0}body:not([data-print-mode="instructor"]) #review{display:none!important}.print-hint{display:block;font-size:9pt;color:#555}.submission{background:white}textarea{min-height:60px}.review-item a{display:none}.review .panel-head:last-child{display:none}.input-layout,.comment-block,.form-intro,.section-head{break-inside:avoid}.divider{margin:12px 0}.comment-block{margin-top:10px}.decision{margin-top:10px}.criterion{padding:7px 10px}.option{padding:4px 9px}textarea{min-height:40px}}
+</style>
+</head>
+<body data-task="research">
+<header class="topbar">
+<div class="top-inner">
+<div class="identity">
+<div class="brandmark" aria-hidden="true">a.</div>
+<div>
+<strong>Annotation workspace</strong>
+<span>Literature review</span>
+</div>
+</div>
+<nav class="header-actions" aria-label="Task tools">
+<a class="btn" href="#instructions">Guidelines</a>
+<button class="btn" type="button" data-print="student">Print student</button>
+<button class="btn" type="button" data-print="instructor">Print instructor</button>
+<button class="btn btn-review" type="button" id="review-toggle" aria-controls="review" aria-expanded="false">Reveal Design Issues</button>
+</nav>
+</div>
+</header>
+<main class="shell">
+<div class="page-header">
+<div>
+<p class="eyebrow">Literature review</p>
+<h1>Research paper screening</h1>
+<p>Screen a research article against the inclusion criteria.</p>
+</div>
+<div class="progress-block">
+<div class="progress-head">
+<strong>Item 1 of 1</strong>
+<span id="progress-text">0 of 1 submitted</span>
+</div>
+<progress id="progress" value="0" max="1" aria-label="Items submitted">0 of 1</progress>
+</div>
+</div>
+<div class="layout">
+<aside class="panel instructions" id="instructions" aria-labelledby="guidelines-title">
+<div class="panel-head">
+<h2 id="guidelines-title">Task guidelines</h2>
+<p>Reference while you work</p>
+</div>
+<div class="instruction-intro">
+<p>Help identify empirical studies evaluating home-based digital interventions for older adults.</p>
+<dl class="meta-list">
+<div>
+<dt>Your role</dt>
+<dd>Research assistant</dd>
+</div>
+<div>
+<dt>Unit</dt>
+<dd>One article: title and abstract</dd>
+</div>
+</dl>
+</div>
+<details open>
+<summary>How to annotate</summary>
+<div class="details-body">
+<ol>
+<li>Read the article’s title and abstract.</li>
+<li>Evaluate each inclusion criterion separately.</li>
+<li>Record Yes or No for every criterion.</li>
+<li>Select an overall decision: Include or Exclude.</li>
+<li>Add a short comment if needed.</li>
+</ol>
+<p id="scope-guide" data-review-target>Base decisions on the title and abstract. Do not search for additional information. Specialist questions can be referred to a senior reviewer.</p>
+</div>
+</details>
+<details open>
+<summary>Inclusion criteria</summary>
+<div class="details-body" id="definitions" data-review-target>
+<div class="guide-block">
+<strong>C1 · Older adult population</strong>
+<p>The study investigates adults aged 65 years or older. Include studies explicitly involving people aged 65+; exclude studies involving only younger participants.</p>
+</div>
+<div class="guide-block">
+<strong>C2 · Digital intervention</strong>
+<p>The study evaluates an intervention delivered or supported through digital technology, such as smartphone apps, web applications, digital coaching systems or wearable-supported interventions. Include digital interventions; exclude studies using technology only to collect research measurements.</p>
+</div>
+<div class="guide-block">
+<strong>C3 · Home-based intervention</strong>
+<p>The intervention is intended to be used in participants’ homes rather than exclusively in a hospital, clinic or laboratory. Include interventions explicitly described as home-based; exclude interventions explicitly delivered only in clinical facilities.</p>
+</div>
+<div class="guide-block">
+<strong>C4 · Empirical evaluation</strong>
+<p>The study reports an evaluation involving participants or other original empirical data. Include experimental, observational and empirical feasibility studies; exclude editorials, purely conceptual proposals and opinion pieces.</p>
+</div>
+</div>
+</details>
+<details>
+<summary>Overall screening decision</summary>
+<div class="details-body">
+<p>
+<strong>Include:</strong> The article appears suitable for the review.</p>
+<p>
+<strong>Exclude:</strong> The article does not appear suitable for the review.</p>
+<p>Use your judgment based on the available information.</p>
+</div>
+</details>
+<details>
+<summary>Training examples</summary>
+<div class="details-body">
+<div class="example">
+<span class="example-label">Example 1 · Include</span>
+<p>
+<strong>Home-based smartphone exercise coaching for older adults</strong>
+</p>
+<p>This study evaluated an eight-week smartphone-supported home exercise program involving 80 participants aged 70 years and older. The results describe adherence, usability and changes in physical activity.</p>
+<p>
+<strong>Expected decision:</strong> Include. The study describes an empirical evaluation of a digital intervention designed for older adults and used at home.</p>
+</div>
+<div class="example">
+<span class="example-label">Example 2 · Exclude</span>
+<p>
+<strong>Clinical rehabilitation following knee surgery in middle-aged adults</strong>
+</p>
+<p>This study evaluated a supervised rehabilitation program delivered in a hospital outpatient clinic to participants aged 40–55 years.</p>
+<p>
+<strong>Expected decision:</strong> Exclude. The population does not meet the age criterion, and the intervention is not home-based or digital.</p>
+</div>
+</div>
+</details>
+<details>
+<summary>Questions &amp; exceptions</summary>
+<div class="details-body">
+<p>Use the available title and abstract. If needed, add a short comment to explain your judgment. Specialist questions can be referred to a senior reviewer.</p>
+</div>
+</details>
+</aside>
+<section class="panel" aria-labelledby="item-title">
+<div class="task-body">
+<div class="section-head">
+<div>
+<p class="section-kicker">Article screening</p>
+<h2 id="item-title">Review this article</h2>
+<p>Read the source, then record your judgments below.</p>
+</div>
+<span class="item-id">ARTICLE · 001</span>
+</div>
+<article class="source-box" id="source-material" data-review-target>
+<div class="source-toolbar">
+<span>Article details</span>
+<span>Title &amp; abstract</span>
+</div>
+<div class="source-content">
+<p class="field-label">Title</p>
+<h3>Smartphone-supported exercise programs for older adults</h3>
+<p class="field-label">Abstract</p>
+<p>We evaluated a smartphone-supported exercise program involving 65 participants aged 70 years and older. Participants followed a four-week exercise program supported by digital reminders and activity monitoring. Outcomes included physical activity, adherence and participant satisfaction.</p>
+</div>
+</article>
+<div class="divider">
+</div>
+<form id="annotation-form">
+<div class="form-intro">
+<h2>Does this study meet each criterion?</h2>
+<p>Choose one response for each criterion.</p>
+</div>
+<div class="criteria" id="criteria-form" data-review-target>
+<fieldset class="criterion" id="c1-question" data-review-target>
+<legend>
+<span class="criterion-code">C1</span>Older adult population</legend>
+<div class="options">
+<label class="option">
+<input type="radio" name="older" value="Yes" required> Yes</label>
+<label class="option">
+<input type="radio" name="older" value="No"> No</label>
+</div>
+</fieldset>
+<fieldset class="criterion" id="c2-question" data-review-target>
+<legend>
+<span class="criterion-code">C2</span>Digital intervention</legend>
+<div class="options">
+<label class="option">
+<input type="radio" name="digital" value="Yes" required> Yes</label>
+<label class="option">
+<input type="radio" name="digital" value="No"> No</label>
+</div>
+</fieldset>
+<fieldset class="criterion" id="c3-question" data-review-target>
+<legend>
+<span class="criterion-code">C3</span>Home-based intervention</legend>
+<div class="options">
+<label class="option">
+<input type="radio" name="home" value="Yes" required> Yes</label>
+<label class="option">
+<input type="radio" name="home" value="No"> No</label>
+</div>
+</fieldset>
+<fieldset class="criterion" id="c4-question" data-review-target>
+<legend>
+<span class="criterion-code">C4</span>Empirical evaluation</legend>
+<div class="options">
+<label class="option">
+<input type="radio" name="empirical" value="Yes" required> Yes</label>
+<label class="option">
+<input type="radio" name="empirical" value="No"> No</label>
+</div>
+</fieldset>
+</div>
+<fieldset class="decision" id="decision-form" data-review-target>
+<legend>Overall screening decision</legend>
+<div class="options">
+<label class="option">
+<input type="radio" name="decision" value="Include" required> Include</label>
+<label class="option">
+<input type="radio" name="decision" value="Exclude"> Exclude</label>
+</div>
+</fieldset>
+<div class="comment-block" id="comment-area" data-review-target>
+<label class="comment-label" for="comment">Comments <span class="optional">(optional)</span>
+</label>
+<textarea id="comment" name="comment" placeholder="Add a note about your judgment">
+</textarea>
+</div>
+<div class="form-actions">
+<button class="btn btn-primary" type="submit">Submit annotation</button>
+<button class="btn" type="reset">Reset</button>
+<span class="form-note">Your response stays on this device.</span>
+</div>
+</form>
+<section class="submission" id="submission" aria-live="polite" hidden>
+<h3 tabindex="-1">Annotation recorded</h3>
+<p>Review your response below. You can edit the form and submit again, or reset it.</p>
+<dl class="summary-list" id="summary-list">
+</dl>
+</section>
+</div>
+</section>
+</div>
+<section class="panel review" id="review" aria-labelledby="review-title" hidden>
+<div class="panel-head">
+<p class="eyebrow">Instructor review</p>
+<h2 id="review-title" tabindex="-1">Annotation design review</h2>
+<p>Linked elements are outlined in the task while this review is visible.</p>
+</div>
+<div class="review-grid">
+<article class="review-item">
+<span class="review-type">Strength</span>
+<h3>Criteria are decomposed</h3>
+<p>Separating relevance into four judgments makes the evidence behind a decision more explicit. <a href="#criteria-form">View related element ↗</a>
+</p>
+<p>
+<strong>Lecture concept:</strong> Task decomposition</p>
+<p>
+<strong>Possible improvement:</strong> Keep criterion-level judgments and provide examples for each boundary.</p>
+</article>
+<article class="review-item">
+<span class="review-type">Strength</span>
+<h3>Criteria have definitions</h3>
+<p>The criteria describe operational meanings and include/exclude guidance, supporting more consistent interpretation. <a href="#definitions">View related element ↗</a>
+</p>
+<p>
+<strong>Lecture concept:</strong> Operational definitions and guidelines</p>
+<p>
+<strong>Possible improvement:</strong> Add more boundary examples and adjudication guidance.</p>
+</article>
+<article class="review-item">
+<span class="review-type">Weakness</span>
+<h3>Home setting is not stated</h3>
+<p>The abstract does not say whether the intervention was used at home, but the form requires Yes or No. <a href="#c3-question">View related element ↗</a>
+</p>
+<p>
+<strong>Lecture concept:</strong> Response schema and missing context</p>
+<p>
+<strong>Possible improvement:</strong> Offer “Not enough information” for each criterion and define how to route it.</p>
+</article>
+<article class="review-item">
+<span class="review-type">Weakness</span>
+<h3>Overall decision rule is underspecified</h3>
+<p>The instructions do not explain how to combine criterion answers into Include or Exclude. <a href="#decision-form">View related element ↗</a>
+</p>
+<p>
+<strong>Lecture concept:</strong> Decision rules and task decomposition</p>
+<p>
+<strong>Possible improvement:</strong> Specify the combination rule and distinguish screening for further review from final eligibility.</p>
+</article>
+<article class="review-item">
+<span class="review-type">Partial strength</span>
+<h3>Comments allow a note</h3>
+<p>Comments let an annotator describe a problem, but they do not replace a structured response for missing evidence. <a href="#comment-area">View related element ↗</a>
+</p>
+<p>
+<strong>Lecture concept:</strong> Exception handling and response schemas</p>
+<p>
+<strong>Possible improvement:</strong> Keep comments and add a structured uncertainty or escalation option.</p>
+</article>
+<article class="review-item">
+<span class="review-type">Trade-off</span>
+<h3>Evidence is limited to title and abstract</h3>
+<p>This makes screening efficient, but may not provide enough evidence for a definitive decision. <a href="#scope-guide">View related element ↗</a>
+</p>
+<p>
+<strong>Lecture concept:</strong> Context and evidence scope</p>
+<p>
+<strong>Possible improvement:</strong> Use a second-stage full-text review or an explicit escalation procedure.</p>
+</article>
+</div>
+<div class="panel-head">
+<button class="btn" id="hide-review" type="button">Hide design review</button>
+</div>
+</section>
+</main>
+<script>
+(() => {
+  const form = document.querySelector('#annotation-form');
+  const review = document.querySelector('#review');
+  const reviewButton = document.querySelector('#review-toggle');
+  const result = document.querySelector('#submission');
+  const resultList = document.querySelector('#summary-list');
+  const progress = document.querySelector('#progress');
+  const progressText = document.querySelector('#progress-text');
+  const taskType = document.body.dataset.task;
+  const notFound = document.querySelector('#not-found');
+  const amount = document.querySelector('#amount');
+  let printSnapshot = null;
+
+  function setReview(open) {
+    review.hidden = !open;
+    document.body.classList.toggle('review-on', open);
+    reviewButton.setAttribute('aria-expanded', String(open));
+    reviewButton.textContent = open ? 'Hide Design Issues' : 'Reveal Design Issues';
+  }
+  reviewButton.addEventListener('click', () => {
+    const open = review.hidden;
+    setReview(open);
+    if (open) { review.scrollIntoView({behavior: 'smooth', block: 'start'}); review.querySelector('h2').focus({preventScroll: true}); }
+  });
+  document.querySelector('#hide-review').addEventListener('click', () => { setReview(false); reviewButton.focus(); });
+  function syncAmount() {
+    if (!notFound) return;
+    amount.disabled = notFound.checked;
+    amount.required = !notFound.checked;
+  }
+  if (notFound) notFound.addEventListener('change', syncAmount);
+  function addRow(label, value) {
+    const term = document.createElement('dt');
+    const description = document.createElement('dd');
+    term.textContent = label;
+    description.textContent = value || '—';
+    resultList.append(term, description);
+  }
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+    const values = new FormData(form);
+    resultList.replaceChildren();
+    if (taskType === 'research') {
+      [['Older adult population','older'], ['Digital intervention','digital'], ['Home-based intervention','home'], ['Empirical evaluation','empirical'], ['Overall decision','decision']].forEach(([label, key]) => addRow(label, values.get(key)));
+    } else {
+      addRow('Amount', notFound.checked ? 'Not found' : values.get('amount'));
+    }
+    addRow('Comment', values.get('comment').trim());
+    result.hidden = false;
+    progress.value = 1;
+    progressText.textContent = '1 of 1 submitted';
+    result.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+    result.querySelector('h3').focus({preventScroll: true});
+  });
+  form.addEventListener('reset', () => {
+    result.hidden = true;
+    resultList.replaceChildren();
+    progress.value = 0;
+    progressText.textContent = '0 of 1 submitted';
+    if (amount) { amount.disabled = false; amount.required = true; }
+  });
+  document.querySelectorAll('[data-print]').forEach(button => button.addEventListener('click', () => {
+    document.body.dataset.printMode = button.dataset.print;
+    window.print();
+  }));
+  window.addEventListener('beforeprint', () => {
+    const details = [...document.querySelectorAll('details')];
+    printSnapshot = {details: details.map(item => item.open), reviewOpen: !review.hidden};
+    details.forEach(item => { item.open = true; });
+    setReview(document.body.dataset.printMode === 'instructor');
+  });
+  window.addEventListener('afterprint', () => {
+    if (printSnapshot) {
+      document.querySelectorAll('details').forEach((item, index) => { item.open = printSnapshot.details[index]; });
+      setReview(printSnapshot.reviewOpen);
+      printSnapshot = null;
+    }
+    delete document.body.dataset.printMode;
+  });
+  syncAmount();
+})();
+</script>
+</body>
+</html>

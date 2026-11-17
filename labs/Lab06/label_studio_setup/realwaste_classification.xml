@@ -1,0 +1,19 @@
+<View>
+  <Header value="Waste Classification"/>
+  <Text name="instructions" value="Look at the image and select the main type of waste."/>
+
+  <Image name="image" value="$image"
+         width="100%" maxWidth="450px"/>
+
+  <Choices name="label" toName="image" choice="single" required="true">
+    <Choice value="Cardboard"/>
+    <Choice value="Food Organics"/>
+    <Choice value="Glass"/>
+    <Choice value="Metal"/>
+    <Choice value="Miscellaneous Trash"/>
+    <Choice value="Paper"/>
+    <Choice value="Plastic"/>
+    <Choice value="Textile Trash"/>
+    <Choice value="Vegetation"/>
+  </Choices>
+</View>

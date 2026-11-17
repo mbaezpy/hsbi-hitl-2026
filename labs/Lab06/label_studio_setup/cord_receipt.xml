@@ -1,0 +1,5 @@
+<View>
+  <Header value="Select the OCR line containing the final total amount"/>
+  <Image name="receipt" value="$image"/>
+  <Choices name="total_line" toName="receipt" choice="single" required="true" value="$options" layout="vertical"/>
+</View>

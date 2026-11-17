@@ -1,0 +1,71 @@
+
+<View>
+  <Header value="Find the final total"/>
+
+  <Text name="instructions"
+        value="Select the OCR box containing the final total amount and mark it as Final total."/>
+
+  <!-- Two-column layout -->
+  <View style="display: flex; align-items: flex-start; gap: 24px;">
+
+    <!-- Left: receipt and OCR bounding boxes -->
+    <View style="flex: 3; min-width: 0;">
+
+        <!--
+            1. Display the receipt image.
+
+            $image refers to the "image" field in the task JSON.
+            The name "receipt" identifies this image in the interface.
+        -->
+        <Image name="receipt" value="$image" maxWidth="650px"/>
+
+        <!--
+            2. Define the bounding-box control.
+
+            This tag does not create the existing OCR boxes.
+            Their positions come from the task's "predictions" array.
+
+            The prediction must contain:
+            from_name: "ocr_box"
+            to_name: "receipt"
+
+            These names connect the predictions to this control.
+        -->
+        <Rectangle name="ocr_box" toName="receipt"
+                    strokeWidth="2" opacity="0.1"/>
+
+    </View>
+
+    <!-- Right: annotation controls -->
+    <View style="flex: 1; min-width: 200px; position: sticky; top: 12px;">
+        <!--
+            3. Let annotators classify an existing box.
+
+            visibleWhen="region-selected" shows these controls
+            only when a bounding box is selected.
+
+            perRegion="true" attaches the answer to that box,
+            rather than to the entire receipt.
+        -->
+        <View visibleWhen="region-selected">
+            <Choices name="is_total" toName="receipt"
+                    perRegion="true" choice="single">
+            <Choice value="Final total"/>
+            </Choices>
+        </View>
+
+        <!--
+            4. Handle cases where no OCR box contains the total.
+
+            This choice applies to the entire receipt,
+            not to an individual bounding box.
+
+            Note: The interface does not automatically prevent
+            selecting both a box and this option.
+        -->
+        <Choices name="missing_total" toName="receipt" choice="single">
+            <Choice value="No OCR box contains the total"/>
+        </Choices>
+    </View>
+  </View>
+</View>

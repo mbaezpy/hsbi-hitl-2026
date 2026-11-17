@@ -1,0 +1,18 @@
+
+<View>
+  <Header value="Extract the final total amount"/>
+
+  <Text name="instructions"
+        value="Draw a box around the final total amount, then enter the value shown."/>
+
+  <Image name="receipt" value="$image" maxWidth="650px"/>
+
+  <RectangleLabels name="total_box" toName="receipt">
+    <Label value="Total amount"/>
+  </RectangleLabels>
+
+  <TextArea name="total_value" toName="receipt"
+            perRegion="true"
+            rows="1"
+            placeholder="Enter the amount"/>
+</View>

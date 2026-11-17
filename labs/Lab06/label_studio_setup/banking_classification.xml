@@ -1,0 +1,184 @@
+
+<View>
+
+  <!-- Always-visible instructions -->
+  <View style="padding: 12px; background: #f5f7fa; margin-bottom: 15px;">
+    <Header value="Banking Support - Intent Annotation" size="4"/>
+    <Text name="intro"
+          value="Read the customer message and select the main issue they want help with. Choose exactly one intent. If no reasonable decision is possible, skip the item."
+          selectionEnabled="false"/>
+  </View>
+
+  <!-- Expandable guidelines -->
+  <Collapse>
+
+
+  <Panel value="Guidelines and decision rules">
+    <View style="padding: 12px;">
+      <Header value="How to decide" size="4"/>
+
+      <Text name="rule1"
+            value="1. Read the complete customer message before selecting a label."
+            selectionEnabled="false"/>
+
+      <Text name="rule2"
+            value="2. Identify the main issue the customer wants help with. Focus on the meaning of the message, not just individual keywords."
+            selectionEnabled="false"/>
+
+      <Text name="rule3"
+            value="3. Select the single intent that best describes the main issue. Use the label definitions when unsure about the differences between categories."
+            selectionEnabled="false"/>
+
+      <Text name="rule4"
+            value="4. If several issues are mentioned, prioritize the customer's main request. If there is no clear primary issue, skip the item."
+            selectionEnabled="false"/>
+
+      <Text name="rule5"
+            value="5. Base your judgment only on the information provided. Do not assume missing details. If none of the nine intents fits, skip the item."
+            selectionEnabled="false"/>
+
+    </View>
+  </Panel>
+
+
+  <Panel value="Label definitions">
+    <View style="padding: 12px;">
+
+      <Header value="Account access" size="4"/>
+
+      <Text name="def_passcode"
+            value="Forgotten passcode: The customer has forgotten their passcode or cannot access their account because of it."
+            selectionEnabled="false"/>
+
+      <Header value="Bank transfers" size="4"/>
+
+      <Text name="def_transfer_pending"
+            value="Pending transfer: A bank transfer has been initiated but is still pending or processing."
+            selectionEnabled="false"/>
+
+      <Text name="def_transfer_not_received"
+            value="Transfer not received: Money was sent, but the intended recipient reports that it has not arrived."
+            selectionEnabled="false"/>
+
+      <Header value="Card payments" size="4"/>
+
+      <Text name="def_card_pending"
+            value="Pending payment: A card payment has been attempted or made but is still shown as pending."
+            selectionEnabled="false"/>
+
+      <Text name="def_card_declined"
+            value="Declined payment: A specific card payment was attempted but rejected or declined."
+            selectionEnabled="false"/>
+
+      <Text name="def_card_duplicated"
+            value="Charged twice: The customer reports that the same card payment appears to have been charged more than once."
+            selectionEnabled="false"/>
+
+      <Header value="Cash withdrawals" size="4"/>
+
+      <Text name="def_cash_pending"
+            value="Pending withdrawal: A cash withdrawal was requested or attempted but remains pending or incomplete."
+            selectionEnabled="false"/>
+
+      <Text name="def_cash_unrecognized"
+            value="Unrecognized withdrawal: The customer does not recognize a cash withdrawal from their account."
+            selectionEnabled="false"/>
+
+      <Header value="Card acceptance" size="4"/>
+
+      <Text name="def_card_acceptance"
+            value="Card acceptance: The customer asks whether their card can be used by a merchant or in a particular payment situation."
+            selectionEnabled="false"/>
+
+    </View>
+  </Panel>
+
+    
+    <Panel value="Examples and difficult cases">
+      <View style="padding: 12px;">
+        <Header value="Examples" size="4"/>
+
+        <Text name="example1"
+              value="I forgot my passcode and cannot log in. - Account access: Forgotten passcode"
+              selectionEnabled="false"/>
+
+        <Text name="example2"
+              value="My transfer is still processing after two days. - Bank transfer: Pending"
+              selectionEnabled="false"/>
+
+        <Text name="example3"
+              value="I sent money, but my friend has not received it. - Bank transfer: Not received"
+              selectionEnabled="false"/>
+
+        <Text name="example4"
+              value="My card was rejected at the supermarket. - Card payment: Declined"
+              selectionEnabled="false"/>
+
+        <Header value="Difficult cases" size="4"/>
+
+        <Text name="edge1"
+              value="I forgot my passcode, and my transfer has not arrived. I need help with both."
+              selectionEnabled="false"/>
+
+        <Text name="edge2"
+              value="If two independent requests have no clear primary intent, skip the item rather than guessing."
+              selectionEnabled="false"/>
+      </View>
+    </Panel>
+
+  </Collapse>
+
+  <!-- Customer message -->
+  <View style="margin-top: 20px; margin-bottom: 20px;">
+    <Header value="Customer message" size="4"/>
+    <Text name="text" value="$text"/>
+  </View>
+
+  <!-- Annotation controls -->
+  <View style="padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
+    <Header value="Choose the primary customer support intent"/>
+
+    <Choices name="label" toName="text"
+             choice="single" required="true"
+             showInline="false">
+
+      <Choice value="Account access - Forgotten passcode"
+              alias="account_access_passcode"
+              hint="The customer has forgotten their passcode or cannot access their account because of it."/>
+
+      <Choice value="Bank transfer - Pending"
+              alias="bank_transfer_pending"
+              hint="The customer initiated a bank transfer, but it is still pending or being processed."/>
+
+      <Choice value="Bank transfer - Not received"
+              alias="bank_transfer_not_received"
+              hint="A transfer was sent, but the intended recipient has not received the money."/>
+
+      <Choice value="Card payment - Pending"
+              alias="card_payment_pending"
+              hint="A card payment is still pending or processing."/>
+
+      <Choice value="Card payment - Declined"
+              alias="card_payment_declined"
+              hint="A card transaction was attempted but declined or rejected."/>
+
+      <Choice value="Card payment - Charged twice"
+              alias="card_payment_duplicated"
+              hint="The same card payment appears to have been charged more than once."/>
+
+      <Choice value="Cash withdrawal - Pending"
+              alias="cash_withdrawal_pending"
+              hint="A cash withdrawal is still pending or incomplete."/>
+
+      <Choice value="Cash withdrawal - Unrecognized"
+              alias="cash_withdrawal_unrecognized"
+              hint="The customer does not recognize a cash withdrawal from their account."/>
+
+      <Choice value="Card acceptance"
+              alias="card_acceptance"
+              hint="The customer asks whether their card can be used in a particular payment situation."/>
+
+    </Choices>
+  </View>
+
+</View>
